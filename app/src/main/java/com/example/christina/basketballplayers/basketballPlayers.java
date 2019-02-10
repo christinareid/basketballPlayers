@@ -17,6 +17,31 @@ public class basketballPlayers
         this.heightInch = heightInch;
     }
 
+    public basketballPlayers()
+    {
+        this.name = "Name";
+        this.jerseyNumber = 0;
+        this.age = 0;
+        this.heightFeet = 0;
+        this.heightInch = 0;
+    }
+
+    public String getNameString()
+    {
+        return this.name;
+    }
+
+    public String getIntsString()
+    {
+        return "Jersey Number: " + this.jerseyNumber + ", Age: " + this.age + ", Height in Feet: " + this.heightFeet + ", Height in Inches: " + this.heightInch + ".";
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.name + ", #" + this.jerseyNumber + ", " + this.heightFeet + " ft, " + this.heightInch + " in (" + this.age + ")";
+    }
+
     public void display()
     {
         System.out.println(name + ", " + jerseyNumber + ", " + age + ", " + heightFeet + " (" + heightInch + ")");
@@ -34,7 +59,7 @@ public class basketballPlayers
 
     public int getAge()
     {
-        return age;
+        return this.age;
     }
 
     public void setAge(int age)

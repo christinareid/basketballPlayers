@@ -30,6 +30,7 @@ public class basketballPlayerAdd extends AppCompatActivity
         int heightInch = Integer.parseInt(heightInchET.getText().toString());
 
         basketballPlayers bp = new basketballPlayers(name, jerseyNumber, age, heightFeet, heightInch);
-        bp.display();
+        Core.addBasketballPlayer(bp);
+        this.finish();
     }
 }
