@@ -1,12 +1,16 @@
 package com.example.christina.basketballplayers;
 
-public class basketballPlayers
+import com.google.firebase.database.Exclude;
+
+import java.io.Serializable;
+
+public class basketballPlayers implements Serializable
 {
-    private String name;
-    private int jerseyNumber;
-    private int age;
-    private int heightFeet;
-    private int heightInch;
+    public String name;
+    public int jerseyNumber;
+    public int age;
+    public int heightFeet;
+    public int heightInch;
 
     public basketballPlayers(String name, int jerseyNumber, int age, int heightFeet, int heightInch)
     {
@@ -26,42 +30,49 @@ public class basketballPlayers
         this.heightInch = 0;
     }
 
+    @Exclude
     public String getNameString()
     {
         return this.name;
     }
 
+    @Exclude
     public String getIntsString()
     {
         return "Jersey Number: " + this.jerseyNumber + ", Age: " + this.age + ", Height in Feet: " + this.heightFeet + ", Height in Inches: " + this.heightInch + ".";
     }
 
-    @Override
+    @Exclude
     public String toString()
     {
         return this.name + ", #" + this.jerseyNumber + ", " + this.heightFeet + " ft, " + this.heightInch + " in (" + this.age + ")";
     }
 
+    @Exclude
     public void display()
     {
         System.out.println(name + ", " + jerseyNumber + ", " + age + ", " + heightFeet + " (" + heightInch + ")");
     }
 
+    @Exclude
     public String getName()
     {
         return name;
     }
 
+    @Exclude
     public int getJerseyNumber()
     {
         return jerseyNumber;
     }
 
+    @Exclude
     public int getAge()
     {
         return this.age;
     }
 
+    @Exclude
     public void setAge(int age)
     {
         if (age >= 1)
@@ -70,11 +81,13 @@ public class basketballPlayers
         }
     }
 
+    @Exclude
     public int getHeightFeet()
     {
         return heightFeet;
     }
 
+    @Exclude
     public int getHeightInch()
     {
         return heightInch;
