@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity
         this.aa = new basketballPlayersArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
         this.lv = (ListView)this.findViewById(R.id.listView);
         this.lv.setAdapter(aa);
+
+        Core.listenForDatabaseChanges();
     }
 
     public void enterPlayerPressed(View v)

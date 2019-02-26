@@ -1,8 +1,11 @@
 package com.example.christina.basketballplayers;
 
 import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class basketballPlayers implements Serializable
 {
