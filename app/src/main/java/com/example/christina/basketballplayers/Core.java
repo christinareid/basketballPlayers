@@ -13,7 +13,8 @@ public class Core
     public static String[] theBasketballPlayers = new String[1000];
     private static int numberOfPlayers = 0;
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
-    public static DatabaseReference myRef = database.getReference("players");
+    public static DatabaseReference myRef = database.getReference("basketballPlayers");
+    public static basketballPlayersArrayAdapter aa;
 
     public static void listenForDatabaseChanges()
     {
@@ -24,14 +25,15 @@ public class Core
             public void onDataChange(DataSnapshot dataSnapshot)
             {
                 // Get Post object and use the values to update the UI
-                System.out.println(dataSnapshot);
+                System.out.println("***" + dataSnapshot.getValue());
+
+                Core.numberOfPlayers = 0;
                 for(DataSnapshot ds: dataSnapshot.getChildren())
                 {
                     basketballPlayers bp = ds.getValue(basketballPlayers.class);
-                    System.out.println("***** Data Changed");
-                    bp.display();
-                }
 
+                }
+                Core.aa.notifyDataSetChanged();
             }
 
             @Override
@@ -50,7 +52,7 @@ public class Core
         Core.myRef.push().setValue(bp);
     }
 
-    public static void addBasketballPlayer(basketballPlayers bp)
+    public static void addBasketballPlayerLocal(basketballPlayers bp)
     {
         //encapsulated the logic of adding patient records here
         Core.thePlayers[Core.numberOfPlayers] = bp;
@@ -58,5 +60,4 @@ public class Core
         Core.numberOfPlayers++;
         Core.writeBasketballPlayersToFirebase(bp);
     }
-
 }

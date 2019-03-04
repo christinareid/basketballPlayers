@@ -7,29 +7,70 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.*;
 
 public class MainActivity extends AppCompatActivity
 {
     private ListView lv;
-    private basketballPlayersArrayAdapter aa;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        for(int i =0; i < Core.theBasketballPlayers.length; i++)
+        super.onCreate(savedInstanceState);
+        FirebaseApp.initializeApp(MainActivity.this);
+        for(int i =0; i < Core.thePlayers.length; i++)
         {
-            Core.theBasketballPlayers[i] = new basketballPlayers().toString();
+            Core.thePlayers[i] = new basketballPlayers();
         }
 
-        super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        this.aa = new basketballPlayersArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
+        Core.aa = new basketballPlayersArrayAdapter(this, R.layout.list_view_row_advanced, Core.thePlayers);
         this.lv = (ListView)this.findViewById(R.id.listView);
-        this.lv.setAdapter(aa);
+        this.lv.setAdapter(Core.aa);
 
         Core.listenForDatabaseChanges();
+    }
+
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        Core.aa.notifyDataSetChanged();
+        System.out.println("****** ON RESUME!!!!!!");
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        System.out.println("****** ON START!!!!!!");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("****** ON PAUSE!!!!!!");
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        System.out.println("****** ON STOP!!!!!!");
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        System.out.println("****** ON RESTART!!!!!!");
+        Core.aa.notifyDataSetChanged();
+
     }
 
     public void enterPlayerPressed(View v)

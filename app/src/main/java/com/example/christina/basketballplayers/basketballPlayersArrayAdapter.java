@@ -44,7 +44,7 @@ public class basketballPlayersArrayAdapter extends ArrayAdapter
         TextView ageTV = (TextView)listItem.findViewById(R.id.ageTV);
 
         nameTV.setText(bp.getNameString());
-        ageTV.setText("Hello World!" + position);
+        ageTV.setText(bp.getIntsString());
 
 
         return listItem;
