@@ -19,6 +19,19 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        System.out.println("*** Linked List Test");
+        LinkedList ll = new LinkedList();
+        ll.addEnd(7);
+        ll.addFront(2);
+        ll.addEnd(3);
+        ll.addAtIndex(13, 1);
+        ll.addAtIndex(23, 0);
+        ll.addAtIndex(33, 5);
+        ll.removeEnd();
+        ll.removeAtIndex(0);
+        ll.display();
+
+
         super.onCreate(savedInstanceState);
         FirebaseApp.initializeApp(MainActivity.this);
         for(int i =0; i < Core.thePlayers.length; i++)

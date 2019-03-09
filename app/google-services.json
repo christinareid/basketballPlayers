@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "126420973535-c2q30j32v5kaplbku9utk8ulpv20ia9h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.christina.basketballplayers",
+            "certificate_hash": "d5957c13a55ea99217cbe7c5e8fc14a9161da012"
+          }
+        },
+        {
           "client_id": "126420973535-ll312rk02nu1pmefcq7it4uujfomajc3.apps.googleusercontent.com",
           "client_type": 3
         }
